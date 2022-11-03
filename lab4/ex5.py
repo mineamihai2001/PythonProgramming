@@ -5,7 +5,7 @@ def fun(target:str, to_search:str):
     if os.path.isfile(target):
         with open(target) as f:
             if to_search in f.read():
-                return f
+                return target
     elif os.path.isdir(target):
         files = os.listdir(target)
         result = list()
@@ -20,5 +20,5 @@ def fun(target:str, to_search:str):
         raise ValueError("ValueError exception thrown")
 
 
-res = fun("../lab3", "print")
+res = fun("../lab3/test", "print")
 print(res)

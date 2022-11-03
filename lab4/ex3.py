@@ -12,9 +12,12 @@ def fun(my_path:str):
         for f in files:
             file_name, file_extension = os.path.splitext(f)
             result[file_extension] = result[file_extension] + 1 if file_extension in result else 1
-        return [(key, value) for key, value in result.items()]  
+        
+        _list = [(key, value) for key, value in result.items()]
+        _list.sort(key= lambda x: x[1], reverse=True)
+        return  _list
 
 
-# result = fun("./ex2.txt")
+# result = fun("./ex1324.txt")
 result = fun("C:/Users/minea/Downloads")
 print(result)

@@ -12,7 +12,8 @@ def fun(target:str, to_search:str, callback):
         for _file in files:
             try:
                 # if os.path.exists(_file):
-                    with open(os.path.abspath(_file)) as f:
+                    cale = os.path.join(target, _file)
+                    with open(cale) as f:
                         if to_search in f.read():
                             result.append(_file)
                 # else: print(_file, "doesn't exist")
@@ -20,11 +21,11 @@ def fun(target:str, to_search:str, callback):
                 callback(e)
         return result
     else:
-        raise ValueError("ValueError exception thrown")
+        callback(ValueError)
 
 def callback(exception: Exception):
     print("EXCEPTION HERE: ", exception)
 
 
-res = fun("../lab3", "print", callback)
+res = fun("../lab2", "print", callback)
 print(res)
